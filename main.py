@@ -15,4 +15,6 @@ main_story = {
     },
 }
 
-print(main_story)
+answer = str(input())
+for chioce in main_story['Chapter_1']['Chioces']:
+    print(chioce[answer])
