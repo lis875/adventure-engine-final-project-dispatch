@@ -1,0 +1,14 @@
+You fit the Heavy Iron Door Key into the lock.
+It turns with a deep, resonant click.
+
+The Heavy Silver Key releases the padlock with a metallic snap.
+
+The door groans open, revealing a long hallway—then the illusion dissolves like smoke as you step forward. Cold night air floods your lungs. You stumble into a barren grove under a pale moon.
+
+Behind you, the house sighs once and falls silent.
+
+You survived.
+You escaped.
+For now.
+
+ENDING: ESCAPE SUCCESSFUL

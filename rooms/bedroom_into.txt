@@ -1,0 +1,19 @@
+You wake with a sharp, pulsing ache behind your forehead. The cold in the room sinks into your bones before you can fully sit up. Beneath you is a wooden bedframe—old, damp, and so warped that it groans under even the slightest movement.
+
+A weak flashlight lies in your hand, trembling faintly when you raise it. Its thin beam reveals a suffocatingly small bedroom: peeling wallpaper hanging like dead skin, a wardrobe leaning in the corner, and dust drifting from the ceiling in soft gray sheets.
+
+Two closed doors wait in the darkness:
+Door A to your left.
+Door B to your right.
+
+The room feels abandoned, but not empty. The air is too still—too aware.
+
+Choices:
+
+Check Under the Bed
+
+Check the Wardrobe
+
+Go to Door A
+
+Go to Door B
