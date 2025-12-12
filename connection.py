@@ -2,25 +2,18 @@ import turtle
 import time
 import random
 
-# === 导入现有模块 ===
-# 我们直接使用 scenes 里的数据，保证状态同步
 from scenes import STATE, SCENES, DISPLAY_NAMES, RANDOM_EVENTS
-# 我们可以复用 main.py 里的显示场景文本的函数，省去重复代码
 from main import show_scene, apply_stat_changes
-# 导入 turtle 画图模块 (注意：导入时它会自动运行顶层的 screen 初始化代码)
 import escape_turtle
 
 # ==========================================
-# 1. 坐标映射配置 (Coordinate Mapping)
+# 1. Coordinate Mapping
 # ==========================================
-# 这里我们需要手动“测量”一下 escape_turtle.py 里各个房间的大致中心点坐标
-# 比如 卧室原本是 draw_room(-220, -100, 170, 150)，中心大概在 (-135, -25)
-# 这样无论玩家在 "bedroom_intro" 还是 "bedroom_bed"，红点都在卧室区域
 ROOM_COORDS = {
-    "bedroom": (-135, -25),  # 卧室中心
-    "bathroom": (-270, -20), # 浴室中心
-    "hall": (20, -60),         # 大厅中心
-    "kitchen": (135, 80)     # 厨房中心
+    "bedroom": (-135, -25),  
+    "bathroom": (-270, -20), 
+    "hall": (20, -60),        
+    "kitchen": (135, 80) 
 }
 
 def get_coordinates(scene_id):
@@ -28,10 +21,8 @@ def get_coordinates(scene_id):
     根据场景ID (如 'bedroom_underbed') 返回对应的 (x, y) 坐标。
     如果找不到精确匹配，就进行模糊匹配。
     """
-    # 1. 判断属于哪个大区域
     if scene_id == "door_a":
         return ROOM_COORDS["bathroom"]
-    # door_b 是去大厅的门，位置应视为大厅
     elif scene_id == "door_b":
         return ROOM_COORDS["hall"]
     if "bedroom" in scene_id:
@@ -43,20 +34,19 @@ def get_coordinates(scene_id):
     elif "kitchen" in scene_id:
         return ROOM_COORDS["kitchen"]
     else:
-        # 如果是结局画面或者未知区域，暂时不动，或者可以设一个默认位置
         return (0, 0)
 
 # ==========================================
-# 2. 玩家对象初始化 (Player Setup)
+# 2. Player Setup
 # ==========================================
 def create_player_marker():
     """创建一个代表玩家的红色圆点"""
     player = turtle.Turtle()
-    player.shape("circle")  # 形状设为圆点
-    player.color("red")     # 颜色设为红色
-    player.shapesize(0.8)   # 稍微调小一点，不要遮住太多家具
-    player.penup()          # 抬笔，移动时不留痕迹
-    player.speed(3)         # 设置移动速度 (1-10)，0为瞬移
+    player.shape("circle") 
+    player.color("red")    
+    player.shapesize(0.8)  
+    player.penup()        
+    player.speed(3)         
     return player
 
 # ==========================================
