@@ -1,0 +1,5 @@
+The hallway is quiet. Too quiet.
+Suddenly, you hear a cold whisper directly behind your ear calling your name.
+You spin around, heart pounding... but there is no one there.
+
+[SAN -10]

@@ -178,3 +178,34 @@ SCENES = {
         "choices": {},
     },
 }
+
+RANDOM_EVENTS = {
+    # 示例：进入厨房时
+    "kitchen_intro": {
+        "pool": [
+            None,                           # 0. 平安无事
+            "events/lamp_explode.txt",      # 1. 灯泡爆炸 (假设扣 HP)
+            "events/rotten_smell.txt"       # 2. 腐烂气味 (假设扣 SAN)
+        ],
+        "weights": [70, 20, 10]             # 对应概率: 70%, 20%, 10%
+    },
+
+    # 示例：进入浴室时
+    "bathroom_intro": {
+        "pool": [
+            None,
+            "events/mirror_crack.txt",      # 镜子裂开
+            "events/slip_floor.txt"         # 地滑摔倒
+        ],
+        "weights": [60, 20, 20]
+    },
+
+    # 示例：进入大厅时
+    "hall_intro": {
+        "pool": [
+            None,
+            "events/whisper.txt"            # 听到低语
+        ],
+        "weights": [80, 20]
+    }
+}

@@ -1,11 +1,12 @@
 import turtle
 import time
+import random
 
 # === 导入现有模块 ===
 # 我们直接使用 scenes 里的数据，保证状态同步
-from scenes import STATE, SCENES, DISPLAY_NAMES
+from scenes import STATE, SCENES, DISPLAY_NAMES, RANDOM_EVENTS
 # 我们可以复用 main.py 里的显示场景文本的函数，省去重复代码
-from main import show_scene
+from main import show_scene, apply_stat_changes
 # 导入 turtle 画图模块 (注意：导入时它会自动运行顶层的 screen 初始化代码)
 import escape_turtle
 
@@ -61,6 +62,41 @@ def create_player_marker():
 # ==========================================
 # 3. Modified Game Loop
 # ==========================================
+# [新增 3] 随机事件处理函数
+def trigger_random_event(scene_id):
+    """
+    检查目标场景是否有配置随机事件，如果有，按权重抽取并执行。
+    """
+    if scene_id not in RANDOM_EVENTS:
+        return
+
+    event_data = RANDOM_EVENTS[scene_id]
+    pool = event_data["pool"]
+    weights = event_data["weights"]
+
+    # 随机抽取一个事件 (文件路径 或 None)
+    # choices 返回的是列表，所以取 [0]
+    chosen_event = random.choices(pool, weights=weights, k=1)[0]
+
+    if chosen_event is not None:
+        print("\n" + "!" * 40)
+        print(">>> SUDDEN EVENT! <<<")
+        
+        # 尝试读取并显示事件文本，同时应用数值变化
+        try:
+            # 假设你的txt文件在 rooms 文件夹下，或者你可以直接写全路径
+            # 这里默认文件路径是相对于运行目录的
+            with open(f"rooms/{chosen_event}", encoding="utf-8") as f:
+                text = f.read()
+                print(text)
+                # 关键：调用 main.py 里的函数解析 [HP -10] 等标签
+                apply_stat_changes(text)
+        except FileNotFoundError:
+            print(f"[System Error] Event file missing: {chosen_event}")
+        
+        print("!" * 40 + "\n")
+        time.sleep(1.5) # 暂停一下让玩家看清事件
+
 def run_game_with_map():
     # --- A. 初始化地图 ---
     # 调用 escape_turtle 里的函数把家具画出来
@@ -89,6 +125,14 @@ def run_game_with_map():
         # 1. 更新地图上的位置
         target_x, target_y = get_coordinates(STATE["location"])
         player.goto(target_x, target_y)
+
+        # [新增 4] 在显示正式场景前，先触发随机事件
+        # 这样如果随机事件导致 HP归零，apply_stat_changes 会处理
+        trigger_random_event(STATE["location"])
+
+        # 如果在随机事件中挂了，直接退出循环
+        if not STATE["alive"]:
+            break
 
         # 2. 显示当前剧情文本 (调用 main.py 的现有功能)
         # 注意：因为 current 变量在循环里更新，这里再次获取

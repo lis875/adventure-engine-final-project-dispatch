@@ -1,0 +1,5 @@
+You glance at the mirror.
+Without warning, a jagged crack appears right across your reflection's face.
+You didn't touch it. It just... broke.
+
+[SAN -15]
