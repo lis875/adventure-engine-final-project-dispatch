@@ -1,16 +1,45 @@
 import turtle
 
 # ==========================================
-# 1. base
+# 0. base
 # ==========================================
 screen = turtle.Screen()
-screen.title("The Lost House - Floor Plan")
+screen.title("Castle Escape - Floor Plan")
 screen.setup(width=900, height=700)
-
 pen = turtle.Turtle()
 pen.speed(0)
 pen.hideturtle()
 pen.width(2)
+
+# ==========================================
+# 1. Title
+# ==========================================
+
+def draw_gradient_title(text, font_size=60):
+    screen.bgcolor("white") #
+    turtle.colormode(255)
+    t = turtle.Turtle()
+    t.hideturtle() 
+    t.speed(0)    
+    t.penup()
+    
+    start_x = -(len(text) * font_size * 0.4) 
+    t.goto(start_x, 200)
+    total_chars = len(text)
+    
+    for index, char in enumerate(text):
+        if total_chars > 1:
+            progress = index / (total_chars - 1)
+        else:
+            progress = 0
+            
+        r_val = int(255 * (1 - progress)) 
+        g_val = 0
+        b_val = 0
+        
+        t.pencolor(r_val, g_val, b_val)
+        
+        t.write(char, move=True, align="left", font=("Arial", font_size, "bold"))
 
 # ==========================================
 # 2. furnitures
@@ -164,6 +193,8 @@ def draw_house_plan():
 # ==========================================
 if __name__ == "__main__":
     # map
+    my_title = "Castle Escape"
+    draw_gradient_title(my_title, font_size=70)
     draw_house_plan()
     
     # furniture
