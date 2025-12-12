@@ -19,7 +19,7 @@ def apply_stat_changes(text):
         STATE['sanity'] += san_change
         print(f">>> SAN {san_change:+d} | Current SAN: {STATE['sanity']}")
     
-    # 检查游戏结束条件
+    # game_endingtime
     if STATE['hp'] <= 0:
         STATE['alive'] = False
         print("\n⚠️  Your body collapses. HP reached 0!")

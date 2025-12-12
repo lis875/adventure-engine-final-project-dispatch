@@ -180,31 +180,31 @@ SCENES = {
 }
 
 RANDOM_EVENTS = {
-    # 示例：进入厨房时
+    # when go into the kitchen
     "kitchen_intro": {
         "pool": [
-            None,                           # 0. 平安无事
-            "events/lamp_explode.txt",      # 1. 灯泡爆炸 (假设扣 HP)
-            "events/rotten_smell.txt"       # 2. 腐烂气味 (假设扣 SAN)
+            None,                           # 0. nothing happen
+            "events/lamp_explode.txt",      # 1. lamp_explode (lost HP)
+            "events/rotten_smell.txt"       # 2. rotten_smell (lost SAN)
         ],
-        "weights": [40, 40, 20]             # 对应概率: 70%, 20%, 10%
+        "weights": [40, 40, 20]             # persent: 40%, 40%, 20%
     },
 
-    # 示例：进入浴室时
+    # when go into bathroom
     "bathroom_intro": {
         "pool": [
             None,
-            "events/mirror_crack.txt",      # 镜子裂开
-            "events/slip_floor.txt"         # 地滑摔倒
+            "events/mirror_crack.txt",      # mirror_crack
+            "events/slip_floor.txt"         # slip_floor
         ],
         "weights": [40, 30, 30]
     },
 
-    # 示例：进入大厅时
+    # when go into hall
     "hall_intro": {
         "pool": [
             None,
-            "events/whisper.txt"            # 听到低语
+            "events/whisper.txt"            # whisper
         ],
         "weights": [60, 40]
     }
