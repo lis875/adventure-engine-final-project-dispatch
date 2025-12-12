@@ -5,7 +5,6 @@ import random
 from scenes import STATE, SCENES, DISPLAY_NAMES, RANDOM_EVENTS
 from main import show_scene, apply_stat_changes
 import escape_turtle
-
 # ==========================================
 # 1. Coordinate Mapping
 # ==========================================
@@ -76,6 +75,7 @@ def trigger_random_event(scene_id):
 
 def run_game_with_map():
     # --- A. ori_map ---
+    escape_turtle.draw_gradient_title("Castle Escape", font_size=70)
     escape_turtle.draw_house_plan()
     escape_turtle.draw_bed(-120, -40)
     escape_turtle.draw_toilet(-315, -40)
