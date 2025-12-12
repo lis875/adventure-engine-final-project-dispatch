@@ -16,7 +16,7 @@ pen.width(2)
 # ==========================================
 
 def draw_gradient_title(text, font_size=60):
-    screen.bgcolor("white") #
+    screen.bgcolor("#0E0E72") 
     turtle.colormode(255)
     t = turtle.Turtle()
     t.hideturtle() 
@@ -49,7 +49,7 @@ def draw_bed(x, y):
     pen.penup()
     pen.goto(x, y)
     pen.pendown()
-    pen.color("black")
+    pen.color("white")
     # bed
     for _ in range(2):
         pen.forward(50)
@@ -64,7 +64,7 @@ def draw_bed(x, y):
     pen.forward(50)
 
 def draw_toilet(x, y):
-    pen.color("black")
+    pen.color("white")
     # washing
     pen.penup()
     pen.goto(x, y)
@@ -82,7 +82,7 @@ def draw_toilet(x, y):
     pen.circle(10)
 
 def draw_cutlery(x, y):
-    pen.color("black")
+    pen.color("white")
     # fork
     pen.penup()
     pen.goto(x, y)
@@ -103,7 +103,7 @@ def draw_cutlery(x, y):
     pen.forward(25)
 
 def draw_dining_set(x, y):
-    pen.color("black")
+    pen.color("white")
     radius = 25
     chair_size = 12
     # table
@@ -131,8 +131,8 @@ def draw_dining_set(x, y):
 # --- map drawing ---
 def draw_house_plan():
     
-    TEXT_COLOR = "#8B0000"
-    WALL_COLOR = "black"
+    TEXT_COLOR = "#C30000"
+    WALL_COLOR = "white"
 
     def draw_room(x, y, w, h):
         pen.penup()
@@ -150,7 +150,7 @@ def draw_house_plan():
         pen.penup()
         pen.goto(x, y)
         pen.pendown()
-        pen.color("white")
+        pen.color("grey")
         pen.width(4)
         pen.setheading(0)
         if horizontal:
