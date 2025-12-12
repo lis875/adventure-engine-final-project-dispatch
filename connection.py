@@ -17,10 +17,6 @@ ROOM_COORDS = {
 }
 
 def get_coordinates(scene_id):
-    """
-    根据场景ID (如 'bedroom_underbed') 返回对应的 (x, y) 坐标。
-    如果找不到精确匹配，就进行模糊匹配。
-    """
     if scene_id == "door_a":
         return ROOM_COORDS["bathroom"]
     elif scene_id == "door_b":
@@ -40,7 +36,6 @@ def get_coordinates(scene_id):
 # 2. Player Setup
 # ==========================================
 def create_player_marker():
-    """创建一个代表玩家的红色圆点"""
     player = turtle.Turtle()
     player.shape("circle") 
     player.color("red")    
@@ -52,11 +47,8 @@ def create_player_marker():
 # ==========================================
 # 3. Modified Game Loop
 # ==========================================
-# [新增 3] 随机事件处理函数
+# random cases function
 def trigger_random_event(scene_id):
-    """
-    检查目标场景是否有配置随机事件，如果有，按权重抽取并执行。
-    """
     if scene_id not in RANDOM_EVENTS:
         return
 
@@ -64,72 +56,60 @@ def trigger_random_event(scene_id):
     pool = event_data["pool"]
     weights = event_data["weights"]
 
-    # 随机抽取一个事件 (文件路径 或 None)
-    # choices 返回的是列表，所以取 [0]
     chosen_event = random.choices(pool, weights=weights, k=1)[0]
 
     if chosen_event is not None:
         print("\n" + "!" * 40)
         print(">>> SUDDEN EVENT! <<<")
         
-        # 尝试读取并显示事件文本，同时应用数值变化
         try:
-            # 假设你的txt文件在 rooms 文件夹下，或者你可以直接写全路径
-            # 这里默认文件路径是相对于运行目录的
+        
             with open(f"rooms/{chosen_event}", encoding="utf-8") as f:
                 text = f.read()
                 print(text)
-                # 关键：调用 main.py 里的函数解析 [HP -10] 等标签
                 apply_stat_changes(text)
         except FileNotFoundError:
             print(f"[System Error] Event file missing: {chosen_event}")
         
         print("!" * 40 + "\n")
-        time.sleep(1.5) # 暂停一下让玩家看清事件
+        time.sleep(1.5) 
 
 def run_game_with_map():
-    # --- A. 初始化地图 ---
-    # 调用 escape_turtle 里的函数把家具画出来
-    # 注意：因为 escape_turtle.py 里的绘制代码在 if name == main 下，
-    # 我们作为模块导入时不会自动执行绘制，所以需要手动调用一次。
+    # --- A. ori_map ---
     escape_turtle.draw_house_plan()
     escape_turtle.draw_bed(-120, -40)
     escape_turtle.draw_toilet(-315, -40)
     escape_turtle.draw_cutlery(150, 70)
     escape_turtle.draw_dining_set(20, -25)
     
-    # --- B. 初始化玩家 ---
+    # --- B. ori_player ---
     player = create_player_marker()
     
-    # 获取当前初始位置
+    # current_location
     current_location = STATE["location"]
     start_x, start_y = get_coordinates(current_location)
     player.goto(start_x, start_y)
 
-    print("=== 游戏开始 ===")
-    print("提示：请查看弹出的 Turtle 窗口查看地图，但在本窗口输入指令。")
+    print("=== Escapping start!! ===")
+    print("Tip：Please check the turtle map and enter your chioces in terminal.")
 
-    # --- C. 循环逻辑 (这是 main.py game_loop 的改良版) ---
+    # --- C. loop ---
     while STATE["alive"]:
         
-        # 1. 更新地图上的位置
+        # 1. update_location
         target_x, target_y = get_coordinates(STATE["location"])
         player.goto(target_x, target_y)
 
-        # [新增 4] 在显示正式场景前，先触发随机事件
-        # 这样如果随机事件导致 HP归零，apply_stat_changes 会处理
         trigger_random_event(STATE["location"])
 
-        # 如果在随机事件中挂了，直接退出循环
         if not STATE["alive"]:
             break
 
-        # 2. 显示当前剧情文本 (调用 main.py 的现有功能)
-        # 注意：因为 current 变量在循环里更新，这里再次获取
+        # 2. text
         current_scene_id = STATE["location"]
         show_scene(current_scene_id)
         
-        # 3. 获取场景数据
+        # 3. scene_data
         scene_data = SCENES.get(current_scene_id)
         if not scene_data:
             print("游戏结束 (场景未定义)")
@@ -137,19 +117,16 @@ def run_game_with_map():
             
         choices = scene_data.get("choices", {})
 
-        # 如果没有选项，说明是结局，退出循环
         if not choices:
             break
 
-        # 4. 打印选项 (逻辑照搬 main.py，保持体验一致)
+        # 4. print
         print("\n你可以选择:")
-        # 对选项key进行排序
+
         for key in sorted(choices.keys(), key=lambda x: int(x) if x.isdigit() else 0):
             next_scene_name = choices[key]
-            # 获取友好的显示名称
             display_entry = DISPLAY_NAMES.get(next_scene_name)
             
-            # 处理显示逻辑
             label = ""
             if isinstance(display_entry, dict):
                 label = display_entry.get('label', next_scene_name)
@@ -160,19 +137,18 @@ def run_game_with_map():
             
             print(f"{key}. {label}")
 
-        # 5. 获取用户输入
-        user_input = input("\n> 请输入选项数字: ").strip()
+        # 5. input
+        user_input = input("\n> Please enter the number you choose: ").strip()
 
-        # 6. 验证并更新状态
+        # 6. update status
         if user_input in choices:
             next_scene = choices[user_input]
-            STATE["location"] = next_scene  # 更新全局状态
-            # 循环回到开头，红点会自动根据新的 location 移动
+            STATE["location"] = next_scene  
         else:
             print("无效的选项，请重试。")
 
-    print("\n=== 游戏结束 ===")
-    print("点击 Turtle 窗口即可关闭程序。")
+    print("\n=== Ending ===")
+    print("Click Turtle to close the Game.")
     escape_turtle.screen.exitonclick()
 
 if __name__ == "__main__":
