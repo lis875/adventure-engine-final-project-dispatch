@@ -1,0 +1,7 @@
+The wardrobe door resists at first, then gives way with a wooden
+ groan. A heavy wave of cold, stale air rushes out at you. The interior is empty—no clothes, no objects, nothing to suggest a human presence.
+But on the back wall, smeared in a dried, dark substance, is a s
+trange symbol. Twisting lines converge into an impossible geometry that seems to shift when you’re not looking directly at it.
+For a moment, you feel it looking back at you.
+
+[SAN -15] (The horrific symbol burns into your mind)

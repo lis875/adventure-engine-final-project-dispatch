@@ -12,3 +12,6 @@ You escaped.
 For now.
 
 ENDING: ESCAPE SUCCESSFUL
+
+=== You are free. ===
+You lived through the nightmare.

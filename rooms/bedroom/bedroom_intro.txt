@@ -7,13 +7,3 @@ Door A to your left.
 Door B to your right.
 
 The room feels abandoned, but not empty. The air is too still—too aware.
-
-Choices:
-
-Check Under the Bed
-
-Check the Wardrobe
-
-Go to Door A
-
-Go to Door B

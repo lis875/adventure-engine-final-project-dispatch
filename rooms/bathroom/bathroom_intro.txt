@@ -1,11 +1,3 @@
 Door A opens into a suffocatingly small bathroom. The air reeks of mildew, rust, and something sour that clings to your throat. Blackish water puddles across the floor in uneven patches. A cracked mirror hangs above a rust-stained sink, reflecting only fragments of your face.
 
 The toilet tank hums quietly, as if something inside is waiting.
-
-Choices:
-
-Check the Mirror
-
-Check the Toilet
-
-Return to Bedroom

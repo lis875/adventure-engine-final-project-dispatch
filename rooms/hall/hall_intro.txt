@@ -4,11 +4,3 @@ To your left is the kitchen door.
 To your right, the Heavy Iron Exit Door, sealed with both a doorknob lock and a massive padlock.
 
 The silence in the hall is thick, like a held breath.
-
-Choices:
-
-Pull Back the Sheet
-
-Check the Exit Door
-
-Go to Kitchen

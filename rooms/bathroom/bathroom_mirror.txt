@@ -4,4 +4,4 @@ Then the center fragment shifts.
 
 For one impossible moment, you see your own face, smiling too wide, eyes hollow and delighted. The vision flickers out before you can blink, leaving only your real reflection staring back, pale and shaken.
 
-SANITY -20
+[SAN -20] (The vision of your twisted self deeply disturbs you)

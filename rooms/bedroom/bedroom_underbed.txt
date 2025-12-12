@@ -4,6 +4,8 @@ You pull it out: a Damp Diary, its cover peeling, pages stuck together with wate
 
 “It is watching me… The key… is under… the water…”
 
-You can’t tell whether the handwriting shook from fear—or from something else entirely.
+You can't tell whether the handwriting shook from fear—or from something else entirely.
 
 Item Acquired: Damp Diary
+
+[SAN -5] (The mysterious message unsettles you)

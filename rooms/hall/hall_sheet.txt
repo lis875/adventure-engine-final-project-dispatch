@@ -8,4 +8,4 @@ A swarm of insects bursts forth—tiny, writhing bodies spilling over the table 
 
 Then, as quickly as they appeared, they scatter into the shadows.
 
-SANITY -10
+[SAN -10] (The writhing mass of insects haunts your vision)

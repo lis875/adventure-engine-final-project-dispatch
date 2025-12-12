@@ -3,13 +3,3 @@ The kitchen is colder than any other part of the house. Your breath fogs immedia
 The freezer hangs partially open.
 The sink is filled with murky, greasy water.
 And on the counter lies something metallic, half-buried under frost.
-
-Choices:
-
-Check Freezer
-
-Check Countertop
-
-Check Sink
-
-Return to Hall

@@ -10,3 +10,6 @@ Your mind fractures as the world bends inward. The house breathes. The house lau
 You step into the darkness, surrendering to it with a manic smile.
 
 ENDING: SUCCUMBED TO MADNESS
+
+=== Your mind fragments. ===
+The house has claimed you as one of its own.
