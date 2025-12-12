@@ -138,6 +138,18 @@ def run_game_with_map():
         # 注意：因为 current 变量在循环里更新，这里再次获取
         current_scene_id = STATE["location"]
         show_scene(current_scene_id)
+     
+        ##### 结局判定
+        if current_scene_id == "ending_check":
+            print("\n>>> 正在根据你的状态判定结局...\n")
+            time.sleep(2) # 制造一点紧张感
+            if STATE["sanity"] >= 10 and STATE["hp"] > 0:
+                STATE["location"] = "ending_success"
+            elif STATE["sanity"] < 10:
+                STATE["location"] = "ending_madness"
+            else:
+                STATE["location"] = "ending_death"
+            continue
         
         # 3. 获取场景数据
         scene_data = SCENES.get(current_scene_id)
