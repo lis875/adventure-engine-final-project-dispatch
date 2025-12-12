@@ -109,6 +109,18 @@ def run_game_with_map():
         current_scene_id = STATE["location"]
         show_scene(current_scene_id)
         
+        #### ending check
+        if current_scene_id == "ending_check":
+            print("\n>>> Checking the ending based on your statement...\n")
+            time.sleep(2) # Create a sense of tension
+            if STATE["sanity"] >= 10 and STATE["hp"] > 0:
+                STATE["location"] = "ending_success"
+            elif STATE["sanity"] < 10:
+                STATE["location"] = "ending_madness"
+            else:
+                STATE["location"] = "ending_death"
+            continue
+
         # 3. scene_data
         scene_data = SCENES.get(current_scene_id)
         if not scene_data:
