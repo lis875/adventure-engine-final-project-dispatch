@@ -112,7 +112,7 @@ def run_game_with_map():
         # 3. scene_data
         scene_data = SCENES.get(current_scene_id)
         if not scene_data:
-            print("游戏结束 (场景未定义)")
+            print("Game over (scene not define)")
             break
             
         choices = scene_data.get("choices", {})
@@ -121,7 +121,7 @@ def run_game_with_map():
             break
 
         # 4. print
-        print("\n你可以选择:")
+        print("\nWhich choice you wanna choose:")
 
         for key in sorted(choices.keys(), key=lambda x: int(x) if x.isdigit() else 0):
             next_scene_name = choices[key]
@@ -145,7 +145,7 @@ def run_game_with_map():
             next_scene = choices[user_input]
             STATE["location"] = next_scene  
         else:
-            print("无效的选项，请重试。")
+            print("meaningless,try again")
 
     print("\n=== Ending ===")
     print("Click Turtle to close the Game.")
