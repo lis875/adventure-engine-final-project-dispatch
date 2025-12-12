@@ -187,7 +187,7 @@ RANDOM_EVENTS = {
             "events/lamp_explode.txt",      # 1. 灯泡爆炸 (假设扣 HP)
             "events/rotten_smell.txt"       # 2. 腐烂气味 (假设扣 SAN)
         ],
-        "weights": [70, 20, 10]             # 对应概率: 70%, 20%, 10%
+        "weights": [40, 40, 20]             # 对应概率: 70%, 20%, 10%
     },
 
     # 示例：进入浴室时
@@ -197,7 +197,7 @@ RANDOM_EVENTS = {
             "events/mirror_crack.txt",      # 镜子裂开
             "events/slip_floor.txt"         # 地滑摔倒
         ],
-        "weights": [60, 20, 20]
+        "weights": [40, 30, 30]
     },
 
     # 示例：进入大厅时
@@ -206,6 +206,6 @@ RANDOM_EVENTS = {
             None,
             "events/whisper.txt"            # 听到低语
         ],
-        "weights": [80, 20]
+        "weights": [60, 40]
     }
 }

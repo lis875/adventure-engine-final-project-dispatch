@@ -2,4 +2,4 @@ As you step into the kitchen, the overhead light bulb flickers violently.
 POP!
 The bulb explodes, showering you with hot glass shards.
 
-[HP -10]
+[HP -15]

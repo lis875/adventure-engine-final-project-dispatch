@@ -2,4 +2,4 @@ A wave of nausea hits you the moment you enter.
 Something underneath the cabinets has been rotting for a very, very long time.
 The smell is so thick you can almost taste it.
 
-[SAN -5]
+[SAN -15]
