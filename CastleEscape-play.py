@@ -99,7 +99,6 @@ def run_game_with_map():
         # 1. update_location
         target_x, target_y = get_coordinates(STATE["location"])
         player.goto(target_x, target_y)
-
         trigger_random_event(STATE["location"])
 
         if not STATE["alive"]:
@@ -146,7 +145,6 @@ def run_game_with_map():
                 label = display_entry
             else:
                 label = next_scene_name
-            
             print(f"{key}. {label}")
 
         # 5. input
