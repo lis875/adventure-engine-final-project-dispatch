@@ -5,6 +5,7 @@ import random
 from scenes import STATE, SCENES, DISPLAY_NAMES, RANDOM_EVENTS
 from main import show_scene, apply_stat_changes
 import escape_turtle
+import ending_turtle
 # ==========================================
 # 1. Coordinate Mapping
 # ==========================================
@@ -158,8 +159,19 @@ def run_game_with_map():
             print("meaningless,try again")
 
     print("\n=== Ending ===")
-    print("Click Turtle to close the Game.")
-    escape_turtle.screen.exitonclick()
+    print("Please check the Popup Window for your Ending Card.")
+    escape_turtle.screen.clearscreen()
+    escape_turtle.screen.bgcolor("black") 
+
+    if STATE["location"] == "ending_death" or STATE["hp"] <= 0:
+        ending_turtle.ending1()
+        
+    elif STATE["location"] == "ending_success":
+        ending_turtle.ending2()
+        
+    elif STATE["location"] == "ending_madness" or STATE["sanity"] <= 0:
+        ending_turtle.ending3()
+    
 
 if __name__ == "__main__":
     run_game_with_map()
