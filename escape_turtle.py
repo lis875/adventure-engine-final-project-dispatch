@@ -196,7 +196,6 @@ if __name__ == "__main__":
     my_title = "Castle Escape"
     draw_gradient_title(my_title, font_size=70)
     draw_house_plan()
-    
     # furniture
     draw_bed(-120, -40)
     draw_toilet(-315, -40)
