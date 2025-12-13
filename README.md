@@ -61,15 +61,19 @@ Read the story in the Terminal Window and enter numbers (e.g., 1, 2) to choose y
 **·Team Contributions**
 
 This project was developed by [Dispatch], with individual roles and contributions as follows:
+
 |Name	       |Role	                     |Specific Contributions
 |Annacy YAN	   |QA / Project Manager         |Graphics System & Main Program Integration
+| :--- | :--- | :--- |
 |Dongjiyi Er   |Systems Engineer             |Scene Logic & Random cases
 |Yves Zhou     |Systems Engineer             |Core Functions & HP/SAN
 |Leah          |Content Designer / Writer    Content & story logic
 
 **·Dependencies**
 Standard Libraries: turtle, time, random, os, re
+
 No external pip packages are required.
 
 Created for LIS875: Technical Foundations of Information Science.
+
 Author：Annacy Yan
