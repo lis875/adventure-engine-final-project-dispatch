@@ -1,9 +1,9 @@
 import turtle
-turtle.screen.title("Castle Escape - Ending")
 #1.ending1-death
 def ending1():
     t = turtle.Turtle()
     screen = turtle.Screen()
+    screen.title("Castle Escape - Ending")
     t.goto(100, -100)  
     t.color("white")
     t.write("YOU DIED!", move=True, align="left", font=("Arial", font_size:=30, "bold")) 
@@ -68,6 +68,8 @@ def ending1():
 #2.ending2-survive
 def ending2():
     t = turtle.Turtle()
+    screen = turtle.Screen()
+    screen.title("Castle Escape - Ending")
     t.goto(100, -100)  
     t.color("white")
     t.write("SUCCESSFUL ESCAPE!", move=True, align="left", font=("Arial", font_size:=25, "bold"))
@@ -119,6 +121,8 @@ def ending2():
 #3.ending3-crazy
 def ending3():
     t = turtle.Turtle()
+    screen = turtle.Screen()
+    screen.title("Castle Escape - Ending")
     t.speed(5)
     t.goto(100, -100)  
     t.color("white")
