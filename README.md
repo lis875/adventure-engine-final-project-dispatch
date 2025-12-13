@@ -5,12 +5,15 @@ Castle Escape is an immersive text-based interactive fiction game developed in P
 **·Game Features**
 
 Dual-Window Interaction System:
+
 Terminal: Handles core storytelling, player command input, and status feedback.
+
 Turtle Map: Displays the castle floor plan and the player's real-time position (red dot) to enhance spatial awareness.
 
 **·Survival System:**
 
 HP (Health Points): Physical damage (e.g., cold, monster attacks) reduces HP. If HP reaches 0, the player dies.
+
 SAN (Sanity): Horrific events (e.g., hallucinations, whispers) reduce Sanity. If SAN drops below 10, the player succumbs to madness.
 
 **·Non-Linear Exploration:**
@@ -25,7 +28,9 @@ Entering a room may trigger random horror events (e.g., exploding light bulbs, c
 **·Multiple Endings:**
 
 True Ending: Successful Escape (Alive & High Sanity).
+
 Bad Ending 1: Death (HP Depleted).
+
 Bad Ending 2: Madness (Sanity Lost).
 
 **·Project Structure**
@@ -61,15 +66,15 @@ Read the story in the Terminal Window and enter numbers (e.g., 1, 2) to choose y
 **·Team Contributions**
 
 This project was developed by [Dispatch], with individual roles and contributions as follows:
-
+| :--- | :--- | :--- |
 |Name	       |Role	                     |Specific Contributions
 |Annacy YAN	   |QA / Project Manager         |Graphics System & Main Program Integration
-| :--- | :--- | :--- |
 |Dongjiyi Er   |Systems Engineer             |Scene Logic & Random cases
 |Yves Zhou     |Systems Engineer             |Core Functions & HP/SAN
-|Leah          |Content Designer / Writer    Content & story logic
+|Leah          |Content Designer / Writer    |Content & story logic
 
 **·Dependencies**
+
 Standard Libraries: turtle, time, random, os, re
 
 No external pip packages are required.
